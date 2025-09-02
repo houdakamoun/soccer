@@ -1,0 +1,58 @@
+<app-banner [title]="'Table Player'"></app-banner>
+
+<div class="site-section bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="widget-next-match">
+          <table class="table custom-table">
+            <thead>
+              <tr>
+                <th>Player Name</th>
+                <th>Player Post</th>
+                <th>Player Number</th>
+                <th>Player Team</th>
+                <!-- Added Player Team column -->
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of players">
+                <td>
+                  <strong class="text-white">{{ p.playerName }}</strong>
+                </td>
+                <td>
+                  <strong class="text-white">{{ p.playerPost }}</strong>
+                </td>
+                <td>
+                  <strong class="text-white">{{ p.number }}</strong>
+                </td>
+                <td>
+                  <strong class="text-white">
+                    {{ p.teamId.teamName }}
+                  </strong>
+                </td>
+                <td>
+                  <button
+                    (click)="deletePlayer(p._id)"
+                    type="button"
+                    class="btn btn-danger"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    (click)="navigateTo(p._id)"
+                    type="button"
+                    class="btn btn-info"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

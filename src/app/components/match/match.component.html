@@ -1,0 +1,50 @@
+<div class="d-flex team-vs mt-3">
+  <button type="submit" class="btn btn-primary" (click)="deletenewmatches()">
+    Delete
+  </button>
+
+  <span class="score">
+    <span
+      [ngClass]="{
+        win: compare(match.scoreOne, match.scoreTwo)[1] == 'blue',
+        loss: compare(match.scoreOne, match.scoreTwo)[1] == 'green',
+        null: compare(match.scoreOne, match.scoreTwo)[1] == 'yellow'
+      }"
+    >
+      {{ match.scoreOne }}
+    </span>
+    -
+    <span
+      [ngClass]="{
+        win: compare(match.scoreTwo, match.scoreOne)[1] == 'blue',
+        loss: compare(match.scoreTwo, match.scoreOne)[1] == 'green',
+        null: compare(match.scoreTwo, match.scoreOne)[1] == 'yellow'
+      }"
+      >{{ match.scoreTwo }}</span
+    >
+  </span>
+  <div class="team-1 w-50">
+    <div class="team-details w-100 text-center">
+      <img src="assets/images/logo_1.png" alt="Image" class="img-fluid" />
+      <h3>
+        <span [ngStyle]="{ color: compare(match.scoreOne, match.scoreTwo)[1] }">
+          {{ match.teamOne }}
+        </span>
+
+        <span>{{ compare(match.scoreOne, match.scoreTwo)[0] }}</span>
+      </h3>
+    </div>
+  </div>
+  <div class="team-2 w-50">
+    <div class="team-details w-100 text-center">
+      <img src="assets/images/logo_2.png" alt="Image" class="img-fluid" />
+      <h3>
+        <span [ngStyle]="{ color: compare(match.scoreTwo, match.scoreOne)[1] }">
+          {{ match.teamTwo }}
+        </span>
+
+        <span>{{ compare(match.scoreTwo, match.scoreOne)[0] }}</span>
+      </h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<app-banner [title]="'Add Player'"></app-banner>
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <form action="#" (ngSubmit)="addPlayer()">
+          <div class="form-group">
+            <input
+              type="text"
+              [(ngModel)]="palyer.playerName"
+              class="form-control"
+              name="a"
+              placeholder="Player Name"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              [(ngModel)]="palyer.playerPost"
+              class="form-control"
+              name="b"
+              placeholder="Palyer Post"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              [(ngModel)]="palyer.number"
+              class="form-control"
+              name="c"
+              placeholder="Number"
+            />
+          </div>
+          <div class="form-group">
+            <select
+              [(ngModel)]="palyer.teamId"
+              class="form-select"
+              name="playerTeam"
+              aria-label="Default select example"
+            >
+              <option class="text-dark" *ngFor="let t of teams" [value]="t._id">
+                {{ t.teamName }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              type="submit"
+              class="btn btn-primary py-3 px-5"
+              value="Add Palyer"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

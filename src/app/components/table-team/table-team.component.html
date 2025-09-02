@@ -1,0 +1,55 @@
+<app-banner [title]="'Table Team'"></app-banner>
+
+<div class="site-section bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="widget-next-match">
+          <table class="table custom-table">
+            <thead>
+              <tr>
+                <th>Team Name</th>
+
+                <th>Date</th>
+                <th>Description</th>
+
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of teams">
+                <td>
+                  <strong class="text-white">{{ t.teamName }}</strong>
+                </td>
+                <td>
+                  <strong class="text-white">{{ t.date }}</strong>
+                </td>
+                <td>
+                  <strong class="text-white">{{ t.description }}</strong>
+                </td>
+
+                <td>
+                  <button
+                    (click)="deleteteam(t._id)"
+                    type="button"
+                    class="btn btn-danger"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    (click)="navigateTo(t._id)"
+                    type="button"
+                    class="btn btn-info"
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
